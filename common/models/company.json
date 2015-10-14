@@ -1,0 +1,41 @@
+{
+  "name": "Company",
+  "plural": "Company",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "desa": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "owner": {
+      "type": "string",
+      "required": true
+    },
+    "phone": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "logo": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": []
+}

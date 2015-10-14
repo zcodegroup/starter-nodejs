@@ -1,0 +1,71 @@
+{
+    "_meta": {
+        "sources": [
+            "loopback/common/models",
+            "loopback/server/models",
+            "../common/models",
+            "./models"
+        ],
+        "mixins": [
+            "loopback/common/mixins",
+            "loopback/server/mixins",
+            "../common/mixins",
+            "./mixins"
+        ]
+    },
+    "User": {
+        "dataSource": "mongodb_dev"
+    },
+    "user": {
+        "dataSource": "mongodb_dev",
+        "public": "true"
+    },
+    "AccessToken": {
+        "dataSource": "mongodb_dev",
+        "public": false
+    },
+    "ACL": {
+        "dataSource": "mongodb_dev",
+        "public": false
+    },
+    "RoleMapping": {
+        "dataSource": "mongodb_dev",
+        "public": false
+    },
+    "Role": {
+        "dataSource": "mongodb_dev",
+        "public": false
+    },
+    "Test": {
+        "dataSource": "db",
+        "public": true
+    },
+    "Propinsi": {
+        "dataSource": "mongodb_dev",
+        "public": true
+    },
+    "Kabupaten": {
+        "dataSource": "mongodb_dev",
+        "public": true
+    },
+    "Kecamatan": {
+        "dataSource": "mongodb_dev",
+        "public": true
+    },
+    "Desa": {
+        "dataSource": "mongodb_dev",
+        "public": true
+    },
+    "Company": {
+        "dataSource": "mongodb_dev",
+        "public": true
+    },
+    "Customer": {
+        "dataSource": "mongodb_dev",
+        "public": true
+    },
+    "Address": {
+        "dataSource": "mongodb_dev",
+        "public": true
+    }
+}
