@@ -1,6 +1,6 @@
 {
-    "name": "user",
-    "plural": "User",
+    "name": "Account",
+    "plural": "Account",
     "base": "User",
     "idInjection": true,
     "options": {

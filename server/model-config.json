@@ -16,7 +16,7 @@
     "User": {
         "dataSource": "mongodb_dev"
     },
-    "user": {
+    "Account": {
         "dataSource": "mongodb_dev",
         "public": "true"
     },
