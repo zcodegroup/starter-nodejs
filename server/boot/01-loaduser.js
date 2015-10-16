@@ -1,3 +1,7 @@
+'user strict';
+
+// to enable these logs set `DEBUG=boot:01-loaduser` or `DEBUG=boot:*`
+var log = require('debug')('boot:01-loaduser');
 module.exports = function(app) {
     var User = app.models.Account;
     var Role = app.models.Role;
@@ -15,13 +19,13 @@ module.exports = function(app) {
 
     User.create(users, function(err, users) {
         if (err){
-        	console.log(err);
+        	log(err);
         	return;
         }
-        console.log('Created users:', users);
+        log('Created users:', users);
         Role.create(adminRole, function(err, role) {
             if (err) {
-            	console.log(err);
+            	log(err);
             	return;
             }
             role.principals.create({
@@ -29,10 +33,10 @@ module.exports = function(app) {
                 principalId: users[0].id
             }, function(err, principal) {
                 if (err) {
-                	console.log(err);
+                	log(err);
                 	return;
                 }
-                console.log('Created principal:', principal);
+                log('Created principal:', principal);
             });
         });
     });
