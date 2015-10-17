@@ -10,7 +10,8 @@ module.exports = function(app) {
     var users = [{
         username: 'jokotingkir',
         email: 'jokotingkir@zcodegroup.com',
-        password: 'gagah'
+        password: 'gagah',
+        type: 0
     }];
 
     var adminRole = {

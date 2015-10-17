@@ -1,3 +1,6 @@
+var log = require('debug')('model:account');
+var loopback = require('loopback');
+
 module.exports = function(Account) {
     /**
      * Return accounts by role
@@ -6,7 +9,7 @@ module.exports = function(Account) {
      */
     Account.getAccountsByRole = function(role, callback) {
 
-        Account.app.models.RoleMapping.accountsIDByRole(role, function(err, accounts) {
+        Account.app.models.RoleMapping.usersIDByRole(role, function(err, accounts) {
 
             if (err || !accounts) return callback(err);
 
@@ -24,6 +27,8 @@ module.exports = function(Account) {
         Account.app.models.RoleMapping.roleByUserId(account, callback);
     }
 
+
+    /*=============== REMOTE METHOD =================*/
     Account.remoteMethod(
         'getAccountsByRole', {
             accepts: {
@@ -52,5 +57,22 @@ module.exports = function(Account) {
         http: {
             verb: 'get'
         }
-    })
+    });
+
+
+
+
+    /*==================== OPERATION HOOKS ====================*/
+
+    Account.observe('access', function limitToCompany(ctx, next) {
+        var loopbackCtx = loopback.getCurrentContext();
+        var currentUser = loopbackCtx && loopbackCtx.get('currentUser');
+        var isExist = false;
+        log(currentUser);
+        if (currentUser){
+        	if (currentUser.type == 0) return next();
+            ctx.query.where.companyId = currentUser.companyId;
+        }
+        next();
+    });
 };
