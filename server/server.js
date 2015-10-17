@@ -21,7 +21,7 @@ app.use(function setCurrentUser(req, res, next) {
         return next();
     }
     app.models.Account.findById(req.accessToken.userId, {
-        include: 'role'
+        include: 'Role'
     }, function(err, user) {
         if (err) {
             return next(err);
