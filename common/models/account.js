@@ -20,6 +20,10 @@ module.exports = function(Account) {
         });
     };
 
+    Account.getRoleByAccount = function(account, callback) {
+        Account.app.models.RoleMapping.roleByUserId(account, callback);
+    }
+
     Account.remoteMethod(
         'getAccountsByRole', {
             accepts: {
@@ -30,7 +34,23 @@ module.exports = function(Account) {
                 arg: 'accounts',
                 type: 'object'
             },
-            http: {verb: 'get'}
+            http: {
+                verb: 'get'
+            }
         }
     );
+
+    Account.remoteMethod('getRoleByAccount', {
+        accepts: {
+            arg: 'accountId',
+            type: 'string'
+        },
+        returns: {
+            arg: 'roles',
+            type: 'object'
+        },
+        http: {
+            verb: 'get'
+        }
+    })
 };
