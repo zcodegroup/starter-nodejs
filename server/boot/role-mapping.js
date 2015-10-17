@@ -32,4 +32,21 @@ module.exports = function(app) {
 
     }
 
+
+    RoleMapping.roleByUserId = function(userId, callback) {
+        var predicate = {
+            where: {
+                principalType: RoleMapping.USER,
+                principalId: userId
+            }
+        };
+        RoleMapping.find(predicate, function(err, mappings) {
+            if (err) return callback(err);
+            var roles = mappings.map(function(m) {
+                return m.roleId;
+            });
+            callback(null, roles);
+        });
+    }
+
 };
