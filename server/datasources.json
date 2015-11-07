@@ -1,20 +1,26 @@
 {
-  "db": {
-    "name": "db",
-    "connector": "memory"
-  },
-  "mongodb_dev": {
-    "host": "127.0.0.1",
-    "port": 27017,
-    "database": "devDB",
-    "name": "mongodb_dev",
-    "connector": "mongodb"
-  },
-  "mongodb_staging": {
-    "host": "127.0.0.1",
-    "port": 27017,
-    "database": "stagingDB",
-    "name": "mongodb_staging",
-    "connector": "mongodb"
-  }
+    "db": {
+        "name": "db",
+        "connector": "memory"
+    },
+    "mongodb_dev": {
+        "host": "127.0.0.1",
+        "port": 27017,
+        "database": "devDB",
+        "name": "mongodb_dev",
+        "connector": "mongodb"
+    },
+    "mongodb_staging": {
+        "host": "127.0.0.1",
+        "port": 27017,
+        "database": "stagingDB",
+        "name": "mongodb_staging",
+        "connector": "mongodb"
+    },
+    "storage": {
+        "name": "storage",
+        "connector": "loopback-component-storage",
+        "provider": "filesystem",
+        "root": "./server/storage"
+    }
 }

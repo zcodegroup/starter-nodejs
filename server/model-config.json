@@ -20,6 +20,10 @@
         "dataSource": "mongodb_dev",
         "public": "true"
     },
+    "Container": {
+        "dataSource": "storage",
+        "public": true
+    },
     "AccessToken": {
         "dataSource": "mongodb_dev",
         "public": false
