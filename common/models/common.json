@@ -1,0 +1,38 @@
+{
+    "name": "Common",
+    "plural": "Common",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "options": {
+        "validateUpsert": true
+    },
+    "properties": {
+        "created": {
+            "type": "number"
+        },
+        "updated": {
+            "type": "number"
+        },
+        "createdBy": {
+            "type": "string"
+        },
+        "updatedBy": {
+            "type": "string"
+        }
+    },
+    "validations": [],
+    "relations": {
+        "creator": {
+            "type": "belongsTo",
+            "model": "Account",
+            "foreignKey": ""
+        },
+        "editor": {
+            "type": "belongsTo",
+            "model": "Account",
+            "foreignKey": ""
+        }
+    },
+    "acls": [],
+    "methods": []
+}
